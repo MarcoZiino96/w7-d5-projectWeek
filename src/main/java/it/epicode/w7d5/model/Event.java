@@ -16,7 +16,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "sequence_event")
     private int id;
-    private String titolo;
+    private String title;
 
     private String description;
 
@@ -26,20 +26,16 @@ public class Event {
 
     private String place;
 
-    private int numberPlacesAvailable;
-
     private int maximumNumberPartecipants;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
-            name = "users_bookings",
-            joinColumns = @JoinColumn(name = "id_user"),
-            inverseJoinColumns = @JoinColumn(name = "id_event"))
-    private List<User> partecipantlist;
-
-    private boolean availability;
+            name = "event_user",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> partecipantList;
 
     public void addUser(User user){
-        partecipantlist.add(user);
+        partecipantList.add(user);
     }
 }

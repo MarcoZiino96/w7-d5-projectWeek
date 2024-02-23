@@ -31,7 +31,7 @@ public class User implements UserDetails {
     private Role role;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "partecipantslist")
+    @ManyToMany(mappedBy = "partecipantList", cascade = CascadeType.REMOVE)
     private List<Event> bookedEvents;
 
     @Override
