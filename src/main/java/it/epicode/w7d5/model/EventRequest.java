@@ -18,19 +18,13 @@ public class EventRequest {
     @NotBlank(message = "luogo obbligatorio")
     private String location;
 
-    @NotNull(message = "data obbligatorio")
-<<<<<<< HEAD
+    @NotNull(message = "numero massimo partecipanti obbligatorio")
 
-    private LocalDate data;
-
-    @NotBlank(message = "numero massimo partecipanti obbligatorio")
-=======
     private LocalDate date;
 
     @NotNull(message = "numero massimo partecipanti obbligatorio")
->>>>>>> develop
+
     private int maximumNumberPartecipants;
 
-    private LocalDate date;
 
 }

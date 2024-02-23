@@ -25,11 +25,7 @@ public class Event {
 
     private LocalDate data;
 
-<<<<<<< HEAD
-    private int maximumNumberPartecipants;
-=======
     private Integer maximumNumberPartecipants;
->>>>>>> develop
 
     @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
