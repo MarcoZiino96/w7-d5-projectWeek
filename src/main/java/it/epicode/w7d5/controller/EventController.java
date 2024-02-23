@@ -47,7 +47,7 @@ public class EventController {
         return  CustomResponse.success(HttpStatus.OK.toString(), eventService.update(id, eventRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("event/delete/{id}")
+    @DeleteMapping("/event/delete/{id}")
     public ResponseEntity<CustomResponse> deleteEvent(@PathVariable int id){
         eventService.delete(id);
         return  CustomResponse.emptyResponse("Evento con id "+ id +" è stata cancellato", HttpStatus.OK);

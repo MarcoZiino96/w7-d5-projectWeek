@@ -26,11 +26,11 @@ public class SecurityChain {
 
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/auth/**").permitAll());
 
-        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event").hasAuthority(Role.EVENT_CREATOR.name()));
+        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/**").hasAuthority(Role.EVENT_CREATOR.name()));
         httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/create").hasAuthority(Role.EVENT_CREATOR.name()));
-        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/edit").hasAuthority(Role.EVENT_CREATOR.name()));
-        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/delete").hasAuthority(Role.EVENT_CREATOR.name()));
-        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/addUser").hasAuthority(Role.USER.name()));
+        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/edit/**").hasAuthority(Role.EVENT_CREATOR.name()));
+        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/delete/**").hasAuthority(Role.EVENT_CREATOR.name()));
+        httpSecurity.authorizeHttpRequests(request-> request.requestMatchers("/event/addUser/**").hasAuthority(Role.USER.name()));
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/**").denyAll());
 
         return httpSecurity.build();
