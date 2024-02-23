@@ -1,6 +1,7 @@
 package it.epicode.w7d5.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -17,12 +18,9 @@ public class EventRequest {
     @NotBlank(message = "luogo obbligatorio")
     private String location;
 
-    @NotBlank(message = "data obbligatorio")
-    private LocalDate data;
+    @NotNull(message = "data obbligatorio")
+    private LocalDate date;
 
-    @NotBlank(message = "place obbligatorio")
-    private String place;
-
-    @NotBlank(message = "numero massimo partecipanti obbligatorio")
+    @NotNull(message = "numero massimo partecipanti obbligatorio")
     private int maximumNumberPartecipants;
 }
