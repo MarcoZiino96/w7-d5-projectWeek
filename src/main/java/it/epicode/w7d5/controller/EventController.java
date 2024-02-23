@@ -39,7 +39,7 @@ public class EventController {
         return  CustomResponse.success(HttpStatus.OK.toString(), eventService.save(eventRequest), HttpStatus.OK);
     }
 
-    @PutMapping("/event/edit")
+    @PutMapping("/event/edit/{id}")
     public ResponseEntity<CustomResponse> updateEvent(@PathVariable int id,@RequestBody @Validated EventRequest eventRequest, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             throw new BadRequestException(bindingResult.getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).toList().toString());
@@ -47,16 +47,16 @@ public class EventController {
         return  CustomResponse.success(HttpStatus.OK.toString(), eventService.update(id, eventRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("event/delete")
+    @DeleteMapping("event/delete/{id}")
     public ResponseEntity<CustomResponse> deleteEvent(@PathVariable int id){
         eventService.delete(id);
-        return  CustomResponse.emptyResponse("Evento con id "+id+" è stata cancellato", HttpStatus.OK);
+        return  CustomResponse.emptyResponse("Evento con id "+ id +" è stata cancellato", HttpStatus.OK);
     }
 
     @PatchMapping("/event/addUser/{id}")
-    public ResponseEntity<CustomResponse> addUserEvent(@PathVariable int id, @RequestParam("idDipendente") int idDipendente){
+    public ResponseEntity<CustomResponse> addUserEvent(@PathVariable int id, @RequestParam("eventId") int eventId){
 
-        Event event = eventService.updateUser(id, idDipendente);
+        Event event = eventService.updateUser(id, eventId);
 
         return CustomResponse.success(HttpStatus.OK.toString(), event, HttpStatus.OK);
     }
