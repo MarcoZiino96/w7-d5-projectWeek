@@ -4,6 +4,7 @@ package it.epicode.w7d5.service;
 import it.epicode.w7d5.exception.NotFoundException;
 import it.epicode.w7d5.model.Event;
 import it.epicode.w7d5.model.EventRequest;
+import it.epicode.w7d5.model.Role;
 import it.epicode.w7d5.model.User;
 import it.epicode.w7d5.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,7 @@ public class EventService {
         if (event.getMaximumNumberPartecipants()<=event.getPartecipantList().size()){
             throw  new RuntimeException("L'evento"+event.getTitle()+" ha raggiunto il numero massimo di partecipanti");
         }
+
          event.addUser(user);
          return eventRepository.save(event);
     }
