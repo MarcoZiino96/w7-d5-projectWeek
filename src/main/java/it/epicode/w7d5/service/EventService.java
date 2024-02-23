@@ -60,8 +60,10 @@ public class EventService {
     }
 
     public Event updateUser(int id, int eventId){
+
         User user = userService.userGetById(id);
         Event event = getEventById(eventId);
+
         if (event.getPartecipantList().contains(user)){
             throw  new RuntimeException(user.getName()+" ha già prenotato un posto in questo evento");
         }

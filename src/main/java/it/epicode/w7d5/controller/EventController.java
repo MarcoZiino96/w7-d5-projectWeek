@@ -26,7 +26,7 @@ public class EventController {
         return CustomResponse.success(HttpStatus.OK.toString(), eventService.getAllEventi(), HttpStatus.OK);
     }
 
-    @GetMapping("/event/{id}")
+    @GetMapping("/event/search/{id}")
     public ResponseEntity<CustomResponse>getEvent(@PathVariable int id){
         return CustomResponse.success(HttpStatus.OK.toString(), eventService.getEventById(id), HttpStatus.OK);
     }
@@ -60,5 +60,4 @@ public class EventController {
 
         return CustomResponse.success(HttpStatus.OK.toString(), event, HttpStatus.OK);
     }
-
 }
