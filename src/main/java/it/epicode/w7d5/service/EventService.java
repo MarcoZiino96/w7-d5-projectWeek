@@ -36,7 +36,6 @@ public class EventService {
         event.setDescription(eventRequest.getDescription());
         event.setData(eventRequest.getData());
         event.setLocation(eventRequest.getLocation());
-        event.setPlace(eventRequest.getPlace());
         event.setTitle(eventRequest.getTitle());
 
         return  eventRepository.save(event);
@@ -48,7 +47,6 @@ public class EventService {
         event.setDescription(eventRequest.getDescription());
         event.setData(eventRequest.getData());
         event.setLocation(eventRequest.getLocation());
-        event.setPlace(eventRequest.getPlace());
         event.setTitle(eventRequest.getTitle());
         event.setMaximumNumberPartecipants(eventRequest.getMaximumNumberPartecipants());
 
