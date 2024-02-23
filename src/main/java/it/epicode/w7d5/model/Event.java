@@ -16,6 +16,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "sequence_event")
     private int id;
+
     private String title;
 
     private String description;
@@ -23,8 +24,6 @@ public class Event {
     private String location;
 
     private LocalDate data;
-
-    private String place;
 
     private int maximumNumberPartecipants;
 

@@ -34,10 +34,10 @@ public class EventService {
         Event event = new Event();
 
         event.setDescription(eventRequest.getDescription());
-        event.setData(eventRequest.getData());
+        event.setData(eventRequest.getDate());
         event.setLocation(eventRequest.getLocation());
-        event.setPlace(eventRequest.getPlace());
         event.setTitle(eventRequest.getTitle());
+        event.setMaximumNumberPartecipants(eventRequest.getMaximumNumberPartecipants());
 
         return  eventRepository.save(event);
     }
@@ -46,9 +46,8 @@ public class EventService {
 
         Event event = getEventById(id);
         event.setDescription(eventRequest.getDescription());
-        event.setData(eventRequest.getData());
+        event.setData(eventRequest.getDate());
         event.setLocation(eventRequest.getLocation());
-        event.setPlace(eventRequest.getPlace());
         event.setTitle(eventRequest.getTitle());
         event.setMaximumNumberPartecipants(eventRequest.getMaximumNumberPartecipants());
 
