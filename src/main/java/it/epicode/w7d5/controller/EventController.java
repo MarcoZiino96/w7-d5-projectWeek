@@ -60,5 +60,4 @@ public class EventController {
 
         return CustomResponse.success(HttpStatus.OK.toString(), event, HttpStatus.OK);
     }
-
 }
