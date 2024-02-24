@@ -60,4 +60,12 @@ public class EventController {
 
         return CustomResponse.success(HttpStatus.OK.toString(), event, HttpStatus.OK);
     }
+
+    @PatchMapping("/event/delete/booked/{id}")
+    public ResponseEntity<CustomResponse> removeBookedEvent(@PathVariable int id, @RequestParam("eventId") int eventId){
+
+         eventService.removeBookedEvent(id, eventId);
+
+        return  CustomResponse.emptyResponse("La tua prenotazione a questo evento è stata concellata", HttpStatus.OK);
+    }
 }

@@ -76,4 +76,14 @@ public class EventService {
          return eventRepository.save(event);
     }
 
+    public  void removeBookedEvent(int id, int eventId){
+        User user = userService.userGetById(id);
+        Event event = getEventById(eventId);
+        if(event.getPartecipantList().contains(user)){
+            event.removeUser(user);
+             eventRepository.delete(event);
+        }else{
+            throw new RuntimeException(user.getName()+" non ha nessena prenotazione su questo evento");
+        }
+    }
 }
