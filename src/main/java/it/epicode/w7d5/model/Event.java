@@ -27,6 +27,7 @@ public class Event {
 
     private Integer maximumNumberPartecipants;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
             name = "event_user",
@@ -37,4 +38,6 @@ public class Event {
     public void addUser(User user){
         partecipantList.add(user);
     }
+
+    public void removeUser(User user){partecipantList.remove(user);}
 }

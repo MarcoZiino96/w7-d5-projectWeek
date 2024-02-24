@@ -1,6 +1,7 @@
 package it.epicode.w7d5.service;
 
 import it.epicode.w7d5.exception.NotFoundException;
+import it.epicode.w7d5.model.Event;
 import it.epicode.w7d5.model.Role;
 import it.epicode.w7d5.model.User;
 import it.epicode.w7d5.model.UserRequest;
@@ -8,6 +9,8 @@ import it.epicode.w7d5.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @Service
@@ -48,5 +51,9 @@ public class UserService{
     public void delete(String email){
         User user = getUserByEmail(email);
         userRepository.delete(user);
+    }
+
+    public List<Event> bookedEventByUser(int id){
+       return userRepository.bookedEventByUser(id);
     }
 }

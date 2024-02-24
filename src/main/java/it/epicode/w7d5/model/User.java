@@ -30,7 +30,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @JsonIgnore
+
     @ManyToMany(mappedBy = "partecipantList", cascade = CascadeType.REMOVE)
     private List<Event> bookedEvents;
 
