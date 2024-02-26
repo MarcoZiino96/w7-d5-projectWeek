@@ -61,7 +61,7 @@ public class EventController {
         return CustomResponse.success(HttpStatus.OK.toString(), event, HttpStatus.OK);
     }
 
-    @PatchMapping("/event/delete/booked/{id}")
+    @PatchMapping("/event/booked/{id}")
     public ResponseEntity<CustomResponse> removeBookedEvent(@PathVariable int id, @RequestParam("eventId") int eventId){
 
          eventService.removeBookedEvent(id, eventId);
